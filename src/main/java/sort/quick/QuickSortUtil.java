@@ -4,9 +4,6 @@ import java.util.List;
 
 import static main.java.sort.SortUtil.swap;
 
-/**
- * Created by wymstar on 5/14/16.
- */
 public class QuickSortUtil {
   public static int partitionByPivot(List<Integer> list, int startIndex, int endIndex) {
     int pivot = list.get(startIndex),

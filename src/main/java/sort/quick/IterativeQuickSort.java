@@ -1,5 +1,6 @@
 package main.java.sort.quick;
 
+import main.java.sort.Scope;
 import main.java.sort.Sort;
 
 import java.util.List;
@@ -8,9 +9,10 @@ import java.util.Stack;
 import static main.java.sort.quick.QuickSortUtil.partitionByPivot;
 
 /**
- * Created by wymstar on 5/10/16.
+ * In fact, it is correct to name/call quick sort as partition exchange sort.
  */
 public class IterativeQuickSort implements Sort{
+  @Override
   public void sort(List<Integer> list) {
     sort(list, 0, list.size()-1);
   }
@@ -24,15 +26,14 @@ public class IterativeQuickSort implements Sort{
     return -1;
   }
 
-  private void sort(List<Integer> list, int startIndex, int endIndex)
-  {
+  private void sort(List<Integer> list, int startIndex, int endIndex) {
     Stack<Scope> scopeStack = new Stack<>();
     scopeStack.push(new Scope(startIndex, endIndex));
 
     while (!scopeStack.isEmpty()) {
       Scope nowScope = scopeStack.pop();
-      startIndex = nowScope.startIndex;
-      endIndex = nowScope.endIndex;
+      startIndex = nowScope.getStartIndex();
+      endIndex = nowScope.getEndIndex();
 
       int pivotOffset = partition(list , startIndex, endIndex);
 
@@ -46,13 +47,4 @@ public class IterativeQuickSort implements Sort{
     }
   }
 
-  private class Scope {
-    int startIndex;
-    int endIndex;
-
-    public Scope(int startIndex, int endIndex) {
-      this.startIndex = startIndex;
-      this.endIndex = endIndex;
-    }
-  }
 }

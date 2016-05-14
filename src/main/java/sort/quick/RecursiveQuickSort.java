@@ -6,12 +6,11 @@ import java.util.List;
 
 import static main.java.sort.quick.QuickSortUtil.partitionByPivot;
 
-
 /**
- * Created by wymstar on 5/9/16.
+ * In fact, it is correct to name/call quick sort as partition exchange sort.
  */
 public class RecursiveQuickSort implements Sort {
-
+  @Override
   public void sort(List<Integer> list) {
     if (list != null && list.size() > 1) {
       partition(list, 0, list.size()-1);
