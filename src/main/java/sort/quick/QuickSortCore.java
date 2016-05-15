@@ -4,7 +4,7 @@ import java.util.List;
 
 import static main.java.sort.SortUtil.swap;
 
-public class QuickSortUtil {
+public class QuickSortCore {
   public static int partitionByPivot(List<Integer> list, int startIndex, int endIndex) {
     int pivot = list.get(startIndex),
             i = startIndex + 1,

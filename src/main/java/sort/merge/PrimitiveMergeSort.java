@@ -5,9 +5,10 @@ import main.java.sort.Sort;
 import java.util.List;
 
 import static main.java.sort.SortUtil.copy;
+import static main.java.sort.merge.MergeSortCore.mergeFromTwoCopiedArraysToOriginArray;
 
 /**
- * Created by wymstar on 5/14/16.
+ * recursive and using extra memory merge sort
  */
 public class PrimitiveMergeSort implements Sort{
   @Override
@@ -21,39 +22,7 @@ public class PrimitiveMergeSort implements Sort{
 
       sort(leftList);
       sort(rightList);
-      merge(leftList, rightList, list);
+      mergeFromTwoCopiedArraysToOriginArray(leftList, rightList, list);
     }
   }
-
-  private void merge(List<Integer> leftList, List<Integer> rightList, List<Integer> list) {
-    int leftIndex=0, rightIndex=0, k=0,
-        leftSize = leftList.size(), rightSize = rightList.size();
-
-    while (leftIndex < leftSize && rightIndex < rightSize) {
-      if (leftList.get(leftIndex) < rightList.get(rightIndex)) {
-        list.set(k, leftList.get(leftIndex));
-        leftIndex++;
-      } else {
-        list.set(k, rightList.get(rightIndex));
-        rightIndex++;
-      }
-      k++;
-    }
-
-    if (leftIndex >= leftSize) {
-      while (k < list.size()) {
-        list.set(k, rightList.get(rightIndex));
-        rightIndex++;
-        k++;
-      }
-    } else {
-      while (k < list.size()) {
-        list.set(k, leftList.get(leftIndex));
-        leftIndex++;
-        k++;
-      }
-    }
-  }
-
-
 }

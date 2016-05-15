@@ -6,7 +6,7 @@ import main.java.sort.Sort;
 import java.util.List;
 import java.util.Stack;
 
-import static main.java.sort.quick.QuickSortUtil.partitionByPivot;
+import static main.java.sort.quick.QuickSortCore.partitionByPivot;
 
 /**
  * In fact, it is correct to name/call quick sort as partition exchange sort.
