@@ -8,3 +8,5 @@
   - primitive (recursive)
   - recursive (recursive and in-place)
   - iterative (iterative and in-place, reference : http://www.geeksforgeeks.org/iterative-merge-sort/)
+
+##3. heap sort
