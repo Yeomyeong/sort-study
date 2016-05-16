@@ -14,19 +14,7 @@ import static main.java.sort.quick.QuickSortCore.partitionByPivot;
 public class IterativeQuickSort implements Sort{
   @Override
   public void sort(List<Integer> list) {
-    sort(list, 0, list.size()-1);
-  }
-
-  private int partition(List<Integer> list, int startIndex, int endIndex)
-  {
-    if (startIndex < endIndex) {
-      int pivotOffset = partitionByPivot(list, startIndex, endIndex);
-      return pivotOffset;
-    }
-    return -1;
-  }
-
-  private void sort(List<Integer> list, int startIndex, int endIndex) {
+    int startIndex = 0, endIndex = list.size() -1;
     Stack<Scope> scopeStack = new Stack<>();
     scopeStack.push(new Scope(startIndex, endIndex));
 
@@ -35,7 +23,7 @@ public class IterativeQuickSort implements Sort{
       startIndex = nowScope.getStartIndex();
       endIndex = nowScope.getEndIndex();
 
-      int pivotOffset = partition(list , startIndex, endIndex);
+      int pivotOffset = partitionByPivot(list , startIndex, endIndex);
 
       if (pivotOffset-1 > startIndex) {
         scopeStack.push(new Scope(startIndex, pivotOffset-1));
