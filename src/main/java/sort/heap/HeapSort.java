@@ -40,12 +40,11 @@ public class HeapSort {
 
   private int getSubtreeRoot(List<Integer> list, int sizeOfHeap, int root) {
     int subtreeRoot = root;
-    int leftIndex = 2* root + 1;
-    int rightIndex = 2* root + 2;
+    int leftIndex = 2 * root + 1;
+    int rightIndex = 2 * root + 2;
 
     if (leftIndex < sizeOfHeap && list.get(leftIndex) > list.get(subtreeRoot))
       subtreeRoot = leftIndex;
-
 
     if (rightIndex < sizeOfHeap && list.get(rightIndex) > list.get(subtreeRoot))
       subtreeRoot = rightIndex;
